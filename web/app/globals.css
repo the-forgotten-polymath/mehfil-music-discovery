@@ -1,0 +1,393 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* A tilted phone keeps the phone layout.
+ *
+ * Turning a phone sideways makes it 667–932px wide, which clears sm and md, so
+ * the app rearranged itself into something closer to the tablet view — in a
+ * window barely 400px tall, which is the one shape that layout cannot use. The
+ * width was never the thing worth testing on its own.
+ *
+ * So every breakpoint now asks for height as well. A phone in landscape is
+ * never taller than about 430px, so it keeps every treatment it had upright; a
+ * tablet or a desktop is both wide and tall and is untouched. A desktop window
+ * dragged shorter than 480px also drops to the phone layout, which is the right
+ * answer for a window that shape.
+ *
+ * sm, md and lg only: xl and 2xl start at 1280px, which no phone reaches in any
+ * orientation, so a guard there would only add a way to be wrong later.
+ *
+ * 30rem is repeated in the .video-stage query near the bottom of this file.
+ * That query is the exact complement of md and has to move with it — media
+ * queries cannot read custom properties, so the two are kept in step by hand. */
+@custom-variant sm (@media (width >= 40rem) and (height >= 30rem));
+@custom-variant md (@media (width >= 48rem) and (height >= 30rem));
+@custom-variant lg (@media (width >= 64rem) and (height >= 30rem));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-heading: var(--font-sans);
+  --font-display: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-heart: var(--heart);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Cursors.
+
+   Tailwind v4 dropped the preflight rule that gave buttons `cursor: pointer`,
+   on the grounds that native buttons do not have one. The result across an
+   application built almost entirely from <button> is that nothing anywhere
+   reads as clickable. Restoring it once here is better than remembering to add
+   a class to every control.
+
+   Disabled controls say so rather than silently ignoring the click, and the
+   things that are dragged rather than pressed — the scrubber and the volume —
+   show a grab cursor instead.
+--------------------------------------------------------------------------- */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  label[for],
+  summary,
+  a[href] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled="true"],
+  [data-disabled] {
+    cursor: not-allowed;
+  }
+
+  /* Text stays selectable-looking where it is text, not a control. */
+  input[type="text"],
+  input[type="search"],
+  textarea {
+    cursor: text;
+  }
+}
+/* ---------------------------------------------------------------------------
+   Mehfil theme. Dark, elevated surfaces in the shape of a modern player, but
+   warm rather than clinical: a brass/gold accent to match the golden-era
+   catalogue instead of the usual streaming green.
+--------------------------------------------------------------------------- */
+.dark {
+  --background: oklch(0.16 0.006 60);
+  --foreground: oklch(0.97 0.004 80);
+  --card: oklch(0.21 0.008 60);
+  --card-foreground: oklch(0.97 0.004 80);
+  --popover: oklch(0.21 0.008 60);
+  --popover-foreground: oklch(0.97 0.004 80);
+
+  --primary: oklch(0.79 0.135 78);
+  /* For hearts, and only hearts. A heart rendered in the brass accent is a
+     heart the eye files with every other control; a warm red is the colour the
+     gesture already has everywhere else on the web. Kept at the brass's own
+     lightness and chroma so it reads as a neighbour in the same palette rather
+     than a second brand colour dropped in. */
+  --heart: oklch(0.70 0.17 22);
+  --primary-foreground: oklch(0.19 0.02 60);
+
+  --secondary: oklch(0.27 0.009 60);
+  --secondary-foreground: oklch(0.97 0.004 80);
+  --muted: oklch(0.26 0.008 60);
+  --muted-foreground: oklch(0.72 0.012 70);
+  --accent: oklch(0.30 0.012 62);
+  --accent-foreground: oklch(0.97 0.004 80);
+
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 13%);
+  --ring: oklch(0.79 0.135 78 / 55%);
+
+  --sidebar: oklch(0.115 0.005 60);
+  --sidebar-foreground: oklch(0.88 0.006 80);
+  --sidebar-primary: oklch(0.79 0.135 78);
+  --sidebar-primary-foreground: oklch(0.19 0.02 60);
+  --sidebar-accent: oklch(0.24 0.009 60);
+  --sidebar-accent-foreground: oklch(0.97 0.004 80);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: oklch(0.79 0.135 78 / 55%);
+}
+
+/* Thin, unobtrusive scrollbars so the dark panels read as one surface. */
+@layer utilities {
+  .scroll-slim {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(1 0 0 / 18%) transparent;
+  }
+  .scroll-slim::-webkit-scrollbar { width: 8px; height: 8px; }
+  .scroll-slim::-webkit-scrollbar-thumb {
+    background: oklch(1 0 0 / 16%);
+    border-radius: 9999px;
+  }
+  .scroll-slim::-webkit-scrollbar-thumb:hover { background: oklch(1 0 0 / 28%); }
+  .scroll-slim::-webkit-scrollbar-track { background: transparent; }
+}
+
+/* ---------------------------------------------------------------------------
+   Typography. One geometric sans throughout, differentiated by weight rather
+   than by pairing it with a contrasting face. Dense UI text still needs
+   stable figures so timecodes and counts do not reflow as digits change.
+--------------------------------------------------------------------------- */
+@layer base {
+  /* A geometric sans carries headings on weight and tracking rather than on a
+     contrasting face: heavy, tight, and slightly negative-tracked is what
+     gives this class of type its confident feel at display sizes. */
+  .font-display,
+  h1, h2 {
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.028em;
+  }
+
+  /* Timecodes, counts and indices must not reflow as their digits change. */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+
+  body {
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   The picture inside the cabinet.
+
+   The iframe is created by the YouTube API rather than by us, so it has to be
+   reached as a descendant. pointer-events are disabled so tapping the screen
+   never surfaces YouTube's own overlay — the app's controls are the only ones.
+--------------------------------------------------------------------------- */
+.video-stage iframe {
+  pointer-events: none;
+}
+
+/* Below md there is no cabinet, so the picture covers the display: sized from
+   whichever axis constrains it and centred, with the overflow clipped by the
+   stage. A 16:9 frame cannot letterbox gracefully into a portrait phone.
+
+   The complement of the md variant defined at the top of this file, and it has
+   to stay that way. md now requires width AND height, so "not md" is a failure
+   of either — a comma, not a narrower width. Left as max-width alone, a tilted
+   phone would take the full-bleed stage from the Tailwind side while the iframe
+   inside it kept desktop sizing, and the picture would not fill its frame. */
+@media (width < 48rem), (height < 30rem) {
+  .video-stage {
+    overflow: hidden;
+  }
+  .video-stage iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 56.25vw;
+    min-width: 177.7778vh;
+    min-height: 100%;
+    /* Held back a little. On a phone the picture is behind the whole interface
+       rather than beside it, so at full strength it competes with the title and
+       the controls sitting on top of it. The scrims do most of the work; this
+       takes the edge off the part of the frame they do not reach. */
+    opacity: 0.75;
+  }
+}
+
+/* Horizontal strips: scrollbar hidden, edges faded to signal there is more. */
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Overlong text dissolves at the right edge instead of ending in an ellipsis.
+     Short text is untouched: the gradient only starts near the edge of the box,
+     and a line that stops before it never reaches the transparent part. */
+  .fade-r {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      #000 0,
+      #000 calc(100% - 2rem),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      #000 0,
+      #000 calc(100% - 2rem),
+      transparent 100%
+    );
+  }
+
+  .fade-x {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 20px,
+      #000 calc(100% - 20px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 20px,
+      #000 calc(100% - 20px),
+      transparent 100%
+    );
+  }
+}
+
+/* A liked heart throwing off smaller ones.
+ *
+ * One static rule for every particle: each is handed its own drift, rise,
+ * rotation, end scale and delay as custom properties, so six differ without six
+ * keyframe definitions.
+ *
+ * Transform and opacity only. Both are composited, so the whole burst runs off
+ * the main thread and cannot cause layout while a song is starting. */
+@keyframes like-rise {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.4) rotate(0deg);
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy)))
+      scale(var(--end-scale)) rotate(var(--rot));
+  }
+}
+
+/* The backdrop arriving after hydration. See components/app-backdrop.tsx. */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}

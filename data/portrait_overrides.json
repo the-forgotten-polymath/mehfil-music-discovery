@@ -1,0 +1,15 @@
+{
+  "_comment": "Hand-supplied portraits, applied last so they beat anything the automatic passes chose. This is the escape hatch for the case no matcher can solve: an entry that is confidently wrong rather than missing. Wikidata's 'Shankar' is S. Shankar the Tamil director (born 1963), which matched the name exactly and passed every occupation check — nothing but a person saying 'no, this one' can correct that. `subject` records who the picture actually shows, which for a duo is both members. These images carry no open licence and are listed as such on the about page.",
+
+  "Shankar": {
+    "url": "https://a10.gaanacdn.com/gn_img/artists/0wrb4kNWLg/wrb4qwRAKL/size_xl_1739274915.jpg",
+    "subject": "Shankar–Jaikishan"
+  },
+  "Jaikishan": {
+    "url": "https://a10.gaanacdn.com/gn_img/artists/0wrb4kNWLg/wrb4qwRAKL/size_xl_1739274915.jpg",
+    "subject": "Shankar–Jaikishan"
+  },
+  "Laxmikant": {
+    "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-GM2TzK4Ng1v6LD-VboQjZskIcWIdN1MwczAgpjHOAVe73DvWSe4OzHquxcdgaGyil_fe5omMkOgUfOLOEknMtNrV4kCTPrhmCxR-qQmkHQ&s=10"
+  }
+}

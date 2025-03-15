@@ -1,0 +1,17 @@
+{
+  "_comment": "Catalogue name -> the name Wikidata files the person under. Only for cases where the catalogue's form is neither the label nor an English alias, so the automatic lookup cannot find them. Each entry was checked by hand against the entity it resolves to; that curation is what licenses find_person() to skip its occupation checks for these names. Where the target is a duo rather than a person, the manifest records the duo as the portrait's subject so the credits do not claim it depicts one member.",
+
+  "S.D. Burman": "Sachin Dev Burman",
+  "Anandji": "Anandji Virji Shah",
+  "Kalyanji": "Kalyanji Virji Shah",
+  "Laxmikant": "Laxmikant-Pyarelal",
+  "Shankar": "Shankar–Jaikishan",
+  "Jaikishan": "Shankar–Jaikishan",
+  "Jatin": "Jatin–Lalit",
+  "Lalit": "Jatin–Lalit",
+  "Anand": "Anand–Milind",
+  "Milind": "Anand–Milind",
+
+  "Sadhana": "Sadhana Shivdasani",
+  "Babita": "Babita Kapoor"
+}

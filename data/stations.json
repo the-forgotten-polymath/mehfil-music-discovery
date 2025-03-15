@@ -1,0 +1,93 @@
+{
+  "_comment": "Role taxonomy for the 66 Carvaan Gold stations. Song entries credit only singers; a station's kind back-fills the other roles. A song under GULZAR was written by Gulzar; under R.D. BURMAN, composed by him; under REKHA, picturised on her. 'people' lists who the role attaches to, so a combined station like SHAMSHAD BEGUM & NOOR JEHAN resolves to two individuals.",
+
+  "singer": {
+    "LATA MANGESHKAR": ["Lata Mangeshkar"],
+    "ASHA BHOSLE": ["Asha Bhosle"],
+    "KISHORE KUMAR": ["Kishore Kumar"],
+    "MOHAMMED RAFI": ["Mohammed Rafi"],
+    "MUKESH": ["Mukesh"],
+    "MANNA DEY": ["Manna Dey"],
+    "GEETA DUTT": ["Geeta Dutt"],
+    "HEMANT KUMAR": ["Hemant Kumar"],
+    "TALAT MAHMOOD": ["Talat Mahmood"],
+    "JAGJIT SINGH": ["Jagjit Singh"],
+    "YESUDAS": ["K.J. Yesudas"],
+    "SHAMSHAD BEGUM & NOOR JEHAN": ["Shamshad Begum", "Noor Jehan"],
+    "SURAIYA, RAJKUMARI & UMA DEVI": ["Suraiya", "Rajkumari", "Uma Devi"],
+    "MANGESHKARS": ["Lata Mangeshkar", "Asha Bhosle", "Usha Mangeshkar"]
+  },
+
+  "composer": {
+    "R.D. BURMAN": ["R.D. Burman"],
+    "S.D. BURMAN": ["S.D. Burman"],
+    "SHANKAR-JAIKISHAN": ["Shankar", "Jaikishan"],
+    "LAXMIKANT-PYARELAL": ["Laxmikant", "Pyarelal"],
+    "KALYANJI-ANANDJI": ["Kalyanji", "Anandji"],
+    "NAUSHAD": ["Naushad"],
+    "O.P. NAYYAR": ["O.P. Nayyar"],
+    "MADAN MOHAN": ["Madan Mohan"],
+    "SALIL CHOWDHURY": ["Salil Chowdhury"],
+    "ANIL BISWAS": ["Anil Biswas"],
+    "KHAYYAM": ["Khayyam"],
+    "BAPPI LAHIRI": ["Bappi Lahiri"],
+    "RAJESH ROSHAN": ["Rajesh Roshan"],
+    "ROSHANS": ["Roshan", "Rajesh Roshan"],
+    "C. RAMCHANDRA CHITRAGUPTA": ["C. Ramchandra", "Chitragupta"],
+    "ANAND-MILIND JATIN-LALIT": ["Anand", "Milind", "Jatin", "Lalit"]
+  },
+
+  "lyricist": {
+    "ANAND BAKSHI": ["Anand Bakshi"],
+    "GULZAR": ["Gulzar"],
+    "SAHIR LUDHIANVI": ["Sahir Ludhianvi"],
+    "MAJROOH SULTANPURI": ["Majrooh Sultanpuri"],
+    "SHAILENDRA": ["Shailendra"],
+    "HASRAT JAIPURI": ["Hasrat Jaipuri"],
+    "SHAKEEL BADAYUNI": ["Shakeel Badayuni"],
+    "RAJENDRA KRISHAN": ["Rajendra Krishan"],
+    "KAIFI AZMI": ["Kaifi Azmi"],
+    "JAVED AKHTAR": ["Javed Akhtar"],
+    "INDEEVAR": ["Indeevar"],
+    "BHARAT VYAS": ["Bharat Vyas"]
+  },
+
+  "actor": {
+    "AMITABH BACHCHAN": ["Amitabh Bachchan"],
+    "BACHCHANS": ["Amitabh Bachchan", "Jaya Bachchan"],
+    "REKHA": ["Rekha"],
+    "HEMA MALINI": ["Hema Malini"],
+    "RISHI KAPOOR": ["Rishi Kapoor"],
+    "SHASHI KAPOOR": ["Shashi Kapoor"],
+    "KAPOORS": ["Raj Kapoor", "Shammi Kapoor", "Shashi Kapoor", "Rishi Kapoor"],
+    "AMOL PALEKAR - SANJEEV KUMAR": ["Amol Palekar", "Sanjeev Kumar"],
+    "SMITA PATIL - SHABANA AZMI": ["Smita Patil", "Shabana Azmi"],
+    "ZEENAT AMAN - PARVEEN BABI": ["Zeenat Aman", "Parveen Babi"],
+    "SADHANA / BABITA": ["Sadhana", "Babita"]
+  },
+
+  "director": {
+    "V. SHANTARAM HITS": ["V. Shantaram"]
+  },
+
+  "mood": {
+    "HAPPY": ["happy"],
+    "SAD": ["sad"],
+    "ROMANCE": ["romantic"],
+    "BHAKTI": ["devotional"],
+    "SUFI": ["sufi"]
+  },
+
+  "genre": {
+    "GHAZAL": ["ghazal"],
+    "GURBANI": ["gurbani"],
+    "FILM INSTRUMENTAL": ["instrumental"],
+    "HINDUSTANI CLASSICAL (INST)": ["hindustani classical", "instrumental"]
+  },
+
+  "format": {
+    "DUET HITS": ["duet"],
+    "SONGS WITH DIALOGUES": ["with dialogue"],
+    "TOP 300": ["popular"]
+  }
+}

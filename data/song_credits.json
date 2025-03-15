@@ -1,0 +1,10 @@
+{
+  "_comment": "Who found or corrected a song's recording, keyed by 'title | film' exactly as data/corrections.json is. Filled in from the reports sheet when a suggested link is accepted and the person left a name. Blank names are not recorded — plenty of people would rather not be listed, and an empty credit is worse than none. Exported to web/public/song-credits.json and shown on the song.",
+
+  "_example": {
+    "Some Song | Some Film": {
+      "name": "Their Name",
+      "kind": "found"
+    }
+  }
+}
